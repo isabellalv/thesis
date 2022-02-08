@@ -19,7 +19,7 @@ import torchvision.utils as vutils
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--dataset', required=True, help='cifar10 | lsun | mnist |imagenet | folder | lfw | fake')
-    #dataroot is the input for the imageset
+    #dataroot is the path to the dataset folder, becomes used to select image set 
 parser.add_argument('--dataroot', required=False, help='path to dataset')
 parser.add_argument('--workers', type=int, help='number of data loading workers', default=2)
 parser.add_argument('--batchSize', type=int, default=64, help='input batch size')
@@ -62,7 +62,8 @@ if torch.cuda.is_available() and not opt.cuda:
 if opt.dataroot is None and str(opt.dataset).lower() != 'fake':
     raise ValueError("`dataroot` parameter is required for dataset \"%s\"" % opt.dataset)
 
-#I believe this next part of the code is just setting up general insturction for loading data depending on imageset
+#I believe this next part of the code is just setting up general insturction for loading data depending on image class 
+#Here, make sure the downloaded image folder directory is set equal to dataroot input
 
 if opt.dataset in ['imagenet', 'folder', 'lfw']:
     # folder dataset
@@ -124,6 +125,11 @@ ndf = int(opt.ndf)
   #plt.axis("off")
   #plt.title("Training Images")
   #plt.imshow(np.transpose(vutils.make_grid(real_batch[0].to(device)[:64], padding=2, normalize=True).cpu(),(1,2,0)))
+
+
+###################
+##IMPLEMENTATION: 
+###################
 
 # custom weights initialization called on netG and netD, randomly intialized from normal distribution 
 # weight_int function takes initialized model as input and reintializes other layers to match 
@@ -234,9 +240,10 @@ optimizerG = optim.Adam(netG.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
 
 if opt.dry_run:
     opt.niter = 1
-#########
-#TRAINING
-#########
+
+################
+#TRAINING LOOP:
+################
 
 #Training the Discriminator: maximizing probability of correctly classifying input as real or fake 
 for epoch in range(opt.niter):
@@ -278,7 +285,7 @@ for epoch in range(opt.niter):
         D_G_z2 = output.mean().item()
         optimizerG.step()
 
-#Training Loop: (slight variation from DCGan but same basic components)
+#Training Loop: (slight variation from DCGan but same basic components - seems like a more concise variation of generator code)
         print('[%d/%d][%d/%d] Loss_D: %.4f Loss_G: %.4f D(x): %.4f D(G(z)): %.4f / %.4f'
               % (epoch, opt.niter, i, len(dataloader),
                  errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
