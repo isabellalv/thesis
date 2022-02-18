@@ -55,7 +55,7 @@ ngpu = 1
 
 ## creating model with parameters 
 netG = Generator(ngpu).to(device)
-netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/thesis/gen_output.pth'))
+netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/thesis/gen_output/netG_epoch_24.pth'))
 
 #Model Inference 
 netG.eval()
