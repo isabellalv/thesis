@@ -25,7 +25,7 @@ from dcGAN.py import state_dict
 
 
 ## saving model 
-torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/thesis/gen_output.pth')
+##torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/thesis/gen_output.pth')
 
 ## creating model with parameters 
 netG = netG(argparse)
@@ -33,6 +33,9 @@ netG.load_state_dict(torch.load('media/data_cifs/projects/prj_categorization/the
 
 #Model Inference 
 netG.eval()
+z = torch.randn(8, 100, 1, 1, device=device)
+fake_image = netG(z)
+print(fake_image.shape)
 
 
 # POSSIBLE WAY TO PLOT: **Visualization of G’s progression**
