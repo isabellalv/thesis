@@ -15,15 +15,14 @@ import torchvision.transforms as transforms
 import torchvision.utils as vutils
 
 
-##import torch 
-##import from dcGAN.py
+from dcGAN.py import state_dict
 
 ## saving model 
-torch.save(netG.state_dict(), ../prj_categorizaation)
+torch.save(netG.state_dict(), PATH)
 
 ## creating model with parameters 
 netG = netG (*args *kwargs)
-netG.load_state_dict(torch.load(../prj_categorizaation))
+netG.load_state_dict(torch.load(PATH)
 netG.eval()
 
 
