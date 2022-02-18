@@ -19,11 +19,11 @@ from dcGAN.py import state_dict
 
 
 ## saving model 
-torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/netG.pth')
+torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization.pth')
 
 ## creating model with parameters 
 netG = netG(argparse)
-netG.load_state_dict(torch.load('media/data_cifs/projects/prj_categorization/netG.pth')
+netG.load_state_dict(torch.load('media/data_cifs/projects/prj_categorization.pth')
 
 #Model Inference 
 netG.eval()
