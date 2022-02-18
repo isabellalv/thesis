@@ -12,7 +12,7 @@ import torch.optim as optim
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from IPython.display import HTML
+#from IPython.display import HTML
 
 class Generator(nn.Module):
     def __init__(self, ngpu, nz=100, ngf=64, nc=1):
