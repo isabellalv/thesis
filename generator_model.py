@@ -18,11 +18,11 @@ import torchvision.utils as vutils
 from dcGAN.py import state_dict
 
 ## saving model 
-torch.save(netG.state_dict(), PATH)
+torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/netG.pth')
 
 ## creating model with parameters 
-netG = netG (*args *kwargs)
-netG.load_state_dict(torch.load(PATH)
+netG = netG(argparse)
+netG.load_state_dict(torch.load('media/data_cifs/projects/prj_categorization/netG.pth')
 netG.eval()
 
 
