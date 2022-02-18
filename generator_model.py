@@ -1,7 +1,25 @@
 
-	## importing pytorch - is this necessary? 
-import torch 
-import from dcGAN.py
+## importing pytorch - is this necessary? 
+from __future__ import print_function
+import argparse
+import os
+import random
+import torch
+import torch.nn as nn
+import torch.nn.parallel
+import torch.backends.cudnn as cudnn
+import torch.optim as optim
+import torch.utils.data
+import torchvision.datasets as dset
+import torchvision.transforms as transforms
+import torchvision.utils as vutils
+
+
+##import torch 
+##import from dcGAN.py
+
+## saving model 
+torch.save(netG.state_dict(), ../prj_categorizaation)
 
 ## creating model with parameters 
 netG = netG (*args *kwargs)
