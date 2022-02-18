@@ -63,6 +63,8 @@ z = torch.randn(8, 100, 1, 1, device=device)
 fake_image = netG(z)
 print(fake_image.shape)
 
+plt.imshow(fake_image[0].squeeze())
+plt.show()
 
 # POSSIBLE WAY TO PLOT: **Visualization of G’s progression**
 # previous model saved the generator’s output on the fixed_noise batch
