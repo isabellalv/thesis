@@ -15,12 +15,12 @@ import matplotlib.animation as animation
 from IPython.display import HTML
 
 class Generator(nn.Module):
-    def __init__(self, ngpu):
+    def __init__(self, ngpu, nz=100, ngf=64, nc=1):
         super(Generator, self).__init__()
         self.ngpu = ngpu
         self.main = nn.Sequential(
             # input is Z, going into a convolution
-            nn.ConvTranspose2d(     nz, ngf * 8, 4, 1, 0, bias=False),
+            nn.ConvTranspose2d(nz, ngf * 8, 4, 1, 0, bias=False),
             nn.BatchNorm2d(ngf * 8),
             nn.ReLU(True),
             # state size. (ngf*8) x 4 x 4
