@@ -1,18 +1,12 @@
 
 ## importing pytorch - is this necessary? 
 from __future__ import print_function
-import argparse
-import os
-import random
+import os, random
 import torch
 import torch.nn as nn
 import torch.nn.parallel
 import torch.backends.cudnn as cudnn
 import torch.optim as optim
-import torch.utils.data
-import torchvision.datasets as dset
-import torchvision.transforms as transforms
-import torchvision.utils as vutils
 
 ##importing stuff for plotting
 import numpy as np
@@ -20,9 +14,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from IPython.display import HTML
 
-from dcGAN.py import netG
-from dcGAN.py import state_dict
-
+from dcGAN import Generator
 
 ## saving model 
 ##torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/thesis/gen_output.pth')
