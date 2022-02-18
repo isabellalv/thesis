@@ -16,9 +16,9 @@ import torchvision.utils as vutils
 
 ##importing stuff for plotting
 import numpy as np
-##import matplotlib.pyplot as plt
-##import matplotlib.animation as animation
-##from IPython.display import HTML
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from IPython.display import HTML
 
 from dcGAN.py import netG
 from dcGAN.py import state_dict
