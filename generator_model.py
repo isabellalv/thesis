@@ -63,7 +63,7 @@ z = torch.randn(8, 100, 1, 1, device=device)
 fake_image = netG(z)
 print(fake_image.shape)
 
-plt.imshow(fake_image[0].squeeze().detach().cpu().numpy())
+plt.imshow(fake_image[5].squeeze().detach().cpu().numpy())
 #plt.show()
 plt.savefig('test.png')
 
