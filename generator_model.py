@@ -14,8 +14,9 @@ import torchvision.datasets as dset
 import torchvision.transforms as transforms
 import torchvision.utils as vutils
 
-
+from dcGAN.py import netG
 from dcGAN.py import state_dict
+
 
 ## saving model 
 torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/netG.pth')
