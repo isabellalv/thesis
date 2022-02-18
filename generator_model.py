@@ -64,7 +64,8 @@ fake_image = netG(z)
 print(fake_image.shape)
 
 plt.imshow(fake_image[0].squeeze().detach().cpu().numpy())
-plt.show()
+#plt.show()
+plt.savefig('test.png')
 
 # POSSIBLE WAY TO PLOT: **Visualization of G’s progression**
 # previous model saved the generator’s output on the fixed_noise batch
