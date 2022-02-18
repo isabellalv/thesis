@@ -23,6 +23,8 @@ torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/netG.
 ## creating model with parameters 
 netG = netG(argparse)
 netG.load_state_dict(torch.load('media/data_cifs/projects/prj_categorization/netG.pth')
+
+#Model Inference 
 netG.eval()
 
 
