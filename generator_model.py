@@ -14,6 +14,12 @@ import torchvision.datasets as dset
 import torchvision.transforms as transforms
 import torchvision.utils as vutils
 
+##importing stuff for plotting
+import numpy as np
+##import matplotlib.pyplot as plt
+##import matplotlib.animation as animation
+##from IPython.display import HTML
+
 from dcGAN.py import netG
 from dcGAN.py import state_dict
 
@@ -23,7 +29,7 @@ torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/thesi
 
 ## creating model with parameters 
 netG = netG(argparse)
-netG.load_state_dict(torch.load('media/data_cifs/projects/prj_categorization/thesis/gen_output.pth')
+netG.load_state_dict(torch.load('media/data_cifs/projects/prj_categorization/thesis/gen_output.pth'))
 
 #Model Inference 
 netG.eval()
