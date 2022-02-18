@@ -26,10 +26,12 @@ from dcGAN.py import state_dict
 
 ## saving model 
 ##torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/thesis/gen_output.pth')
+device = 'cuda:0'
+ngpu = 1
 
 ## creating model with parameters 
-netG = netG(argparse)
-netG.load_state_dict(torch.load('media/data_cifs/projects/prj_categorization/thesis/gen_output.pth'))
+netG = Generator(ngpu).to(device)
+netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/thesis/gen_output.pth'))
 
 #Model Inference 
 netG.eval()
