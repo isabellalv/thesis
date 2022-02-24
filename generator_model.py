@@ -50,20 +50,20 @@ class Generator(nn.Module):
 
 ## saving model 
 ##torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/thesis/gen_output.pth')
-device = 'cuda:0'
-ngpu = 1
+device = 'cuda:0' #device to run code on 
+ngpu = 1 #number of GPUS to use 
 
 ## creating model with parameters 
 netG = Generator(ngpu).to(device)
-netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/thesis/gen_output/netG_epoch_7.pth'))
+netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/thesis/gen_output/netG_epoch_7.pth')) #path to generator output specified to epoch that it is loading
 
 #Model Inference 
 netG.eval()
-z = torch.randn(8, 100, 1, 1, device=device)
-fake_image = netG(z)
+z = torch.randn(8, 100, 1, 1, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
+fake_image = netG(z) #
 print(fake_image.shape)
 
-plt.imshow(fake_image[5].squeeze().detach().cpu().numpy())
+plt.imshow(fake_image[5].squeeze().detach().cpu().numpy()) #brackets in fake_images indicates what image in the sequence of 8 you want to show 
 #plt.show()
 plt.savefig('test.png')
 
