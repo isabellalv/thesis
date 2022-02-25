@@ -59,7 +59,7 @@ netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/ci
 
 #Model Inference 
 netG.eval()
-z = torch.randn(8, 100, 1, 1, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
+z = torch.randn(64, 1, 4, 4, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
 fake_image = netG(z) #
 print(fake_image.shape)
 
