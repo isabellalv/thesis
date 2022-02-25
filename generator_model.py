@@ -55,11 +55,11 @@ ngpu = 1 #number of GPUS to use
 
 ## creating model with parameters 
 netG = Generator(ngpu).to(device)
-netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/cifar_gen_output/netG_epoch_13.pth')) #path to generator output specified to epoch that it is loading
+netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/cifar_gen_output/netG_epoch_25.pth')) #path to generator output specified to epoch that it is loading
 
 #Model Inference 
 netG.eval()
-z = torch.randn(64, 1, 4, 4, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
+z = torch.randn(8, 100, 1, 1, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
 fake_image = netG(z) #
 print(fake_image.shape)
 
