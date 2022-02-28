@@ -15,7 +15,7 @@ import matplotlib.animation as animation
 #from IPython.display import HTML
 
 class Generator(nn.Module):
-    def __init__(self, ngpu, nz=100, ngf=64, nc=3):
+    def __init__(self, ngpu, nz=100, ngf=64, nc=3): #nc=3 for color image, nc=1 for grayscale
         super(Generator, self).__init__()
         self.ngpu = ngpu
         self.main = nn.Sequential(
@@ -60,11 +60,14 @@ netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/ci
 #Model Inference 
 netG.eval()
 z = torch.randn(8, 100, 1, 1, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
-fake_image = netG(z) #
-print(fake_image.shape)
+fake_image = netG(z) 
+print(fake_image.shape) #print output value shape 
 
-plt.imshow(fake_image[5].squeeze().detach().cpu().numpy()) #brackets in fake_images indicates what image in the sequence of 8 you want to show and squeeze removes input of size 1 removed
+fake_image1 = fake_image[5].squeeze().transpose(1,2,0).detach().cpu().numpy() #this is reshaping so color channel is last 
+print(fake_image1.shape) #brackets in fake_images indicates what image in the sequence of 8 you want to show and squeeze removes input of size 1 removed
 #plt.show()
+
+plt.imshow(fake_image1) 
 plt.savefig('test.png') #assigning name to figure 
 
 # POSSIBLE WAY TO PLOT: **Visualization of G’s progression**
