@@ -69,7 +69,7 @@ print(fake_image1.shape) #brackets in fake_images indicates what image in the se
 #plt.show()
 #import ipdb; ipdb.set_trace()
 
-mn, mx = fake_image1.min(), fake_image.max()
+mn, mx = fake_image1.min(), fake_image1.max()
 fake_image1 = (fake_image1 - mn)/(mx - mn)
 
 plt.imshow((fake_image1 * 255.).astype(np.uint8)) 
