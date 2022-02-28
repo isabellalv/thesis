@@ -15,7 +15,7 @@ import matplotlib.animation as animation
 #from IPython.display import HTML
 
 class Generator(nn.Module):
-    def __init__(self, ngpu, nz=100, ngf=64, nc=1):
+    def __init__(self, ngpu, nz=100, ngf=32, nc=1):
         super(Generator, self).__init__()
         self.ngpu = ngpu
         self.main = nn.Sequential(
