@@ -55,7 +55,7 @@ ngpu = 1 #number of GPUS to use
 
 ## creating model with parameters 
 netG = Generator(ngpu).to(device)
-netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/cifar_gen_output/netG_epoch_45.pth')) #path to generator output specified to epoch that it is loading
+netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/cifar_gen_output/netG_epoch_25.pth')) #path to generator output specified to epoch that it is loading
 
 #Model Inference 
 netG.eval()
