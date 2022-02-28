@@ -66,9 +66,9 @@ print(fake_image.shape) #print output value shape
 fake_image1 = torch.transpose(torch.transpose(fake_image[5].squeeze(),1,0),2,1).detach().cpu().numpy() #this is reshaping so color channel is last 
 print(fake_image1.shape) #brackets in fake_images indicates what image in the sequence of 8 you want to show and squeeze removes input of size 1 removed
 #plt.show()
-import ipdb; ipdb.set_trace()
+#import ipdb; ipdb.set_trace()
 
-plt.imshow(fake_image1) 
+plt.imshow(fake_image1.astype(np.uint8)) 
 plt.savefig('test.png') #assigning name to figure 
 
 # POSSIBLE WAY TO PLOT: **Visualization of G’s progression**
