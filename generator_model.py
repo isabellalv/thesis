@@ -68,7 +68,7 @@ print(fake_image1.shape) #brackets in fake_images indicates what image in the se
 #plt.show()
 #import ipdb; ipdb.set_trace()
 
-plt.imshow(fake_image1.astype(np.uint8)) 
+plt.imshow((fake_image1 * 255.).astype(np.uint8)) 
 plt.savefig('test.png') #assigning name to figure 
 
 # POSSIBLE WAY TO PLOT: **Visualization of G’s progression**
