@@ -313,6 +313,7 @@ D_avg_losses = []
 G_avg_losses = []
 
 # Fixed noise & class label for test
+# Allows you to track the ouput for the same input noise vector over time 
 num_test_samples = 10*10
 
 temp_noise = torch.randn(label_dim, G_input_dim)
@@ -345,7 +346,7 @@ for epoch in range(num_epochs):
         G_optimizer.param_groups[0]['lr'] /= 2
         D_optimizer.param_groups[0]['lr'] /= 2
 
-    # minibatch training
+    # minibatch training - multiple minibatches compreise an epoch 
     for i, (images, labels) in enumerate(data_loader):
         ############################
         # (1) Update D network: maximize log(D(x)) + log(1 - D(G(z)))
@@ -424,6 +425,10 @@ for epoch in range(num_epochs):
 
     # Show result for fixed noise
     plot_result(G, fixed_noise, fixed_label, epoch, save=True)
+    #adding code to save weights for every epoch 
+    torch.save(G.state_dict(), '../%s/netG_epoch_%d.pth' % (save_dir, epoch))
+    torch.save(D.state_dict(), '../%s/netD_epoch_%d.pth' % (save_dir, epoch))
+
 
 # Making a gif with class interpolation 
 loss_plots = []
