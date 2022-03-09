@@ -7,8 +7,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import imageio
-from logger import Logger
-from draw_convnet import DrawNet
+from logger import Logger #should it instead be import logging? why does it show up as blue later on? not recognizing it as a diff color... 
+from draw_convnet import DrawNet ##this also has some intstallation problems? --> may have to load code, can probably get rid of the code that contributes to it 
 
 # Parameters
 image_size = 32 
