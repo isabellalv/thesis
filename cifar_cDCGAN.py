@@ -411,8 +411,8 @@ for epoch in range(num_epochs):
               % (epoch+1, num_epochs, i+1, len(data_loader), D_loss.item(), G_loss.item()))
 
         # ============ TensorBoard logging: provides measurements/visualizations needed during workflow============#
-        D_logger.scalar_summary('losses', D_loss.data[0], step + 1)
-        G_logger.scalar_summary('losses', G_loss.data[0], step + 1)
+        D_logger.scalar_summary('losses', D_loss.item(), step + 1)
+        G_logger.scalar_summary('losses', G_loss.item(), step + 1)
         step += 1
 
     D_avg_loss = torch.mean(torch.FloatTensor(D_losses))
