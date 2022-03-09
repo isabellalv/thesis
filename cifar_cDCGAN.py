@@ -23,8 +23,8 @@ learning_rate = 0.0002
 betas = (0.5, 0.999)
 batch_size = 128 
 num_epochs = 50 
-data_dir = '../../Data/CIFAR_data/' #maybe this is where I need to line it up for CIFAR, since this is where it's getting the code? 
-save_dir = '../CIFAR_cDCGAN_results/' 
+data_dir = '../data/CIFAR/' #maybe this is where I need to line it up for CIFAR, since this is where it's getting the code? 
+save_dir = '../results/CIFAR_cDCGAN/' 
 
 # loading the CIFAR dataset 
 transform = transforms.Compose([transforms.Scale(image_size),
@@ -426,8 +426,8 @@ for epoch in range(num_epochs):
     # Show result for fixed noise
     plot_result(G, fixed_noise, fixed_label, epoch, save=True)
     #adding code to save weights for every epoch 
-    torch.save(G.state_dict(), '../%s/netG_epoch_%d.pth' % (save_dir, epoch))
-    torch.save(D.state_dict(), '../%s/netD_epoch_%d.pth' % (save_dir, epoch))
+    torch.save(G.state_dict(), '%s/netG_epoch_%d.pth' % (save_dir, epoch))
+    torch.save(D.state_dict(), '%s/netD_epoch_%d.pth' % (save_dir, epoch))
 
 
 # Making a gif with class interpolation 
