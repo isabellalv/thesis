@@ -404,8 +404,8 @@ for epoch in range(num_epochs):
 
         import ipdb; ipdb.set_trace()
         # loss values
-        D_losses.append(D_loss.data[0])
-        G_losses.append(G_loss.data[0])
+        D_losses.append(D_loss.item())
+        G_losses.append(G_loss.item())
 
         print('Epoch [%d/%d], Step [%d/%d], D_loss: %.4f, G_loss: %.4f'
               % (epoch+1, num_epochs, i+1, len(data_loader), D_loss.data[0], G_loss.data[0]))
