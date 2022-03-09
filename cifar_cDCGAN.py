@@ -402,13 +402,13 @@ for epoch in range(num_epochs):
         G_loss.backward()
         G_optimizer.step()
 
-        import ipdb; ipdb.set_trace()
+        #import ipdb; ipdb.set_trace()
         # loss values
         D_losses.append(D_loss.item())
         G_losses.append(G_loss.item())
 
         print('Epoch [%d/%d], Step [%d/%d], D_loss: %.4f, G_loss: %.4f'
-              % (epoch+1, num_epochs, i+1, len(data_loader), D_loss.data[0], G_loss.data[0]))
+              % (epoch+1, num_epochs, i+1, len(data_loader), D_loss.item(), G_loss.item()))
 
         # ============ TensorBoard logging: provides measurements/visualizations needed during workflow============#
         D_logger.scalar_summary('losses', D_loss.data[0], step + 1)
