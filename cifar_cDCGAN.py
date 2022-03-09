@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import os
 import imageio
 from logger import Logger #should it instead be import logging? why does it show up as blue later on? not recognizing it as a diff color... 
-from draw_convnet import DrawNet ##this also has some intstallation problems? --> may have to load code, can probably get rid of the code that contributes to it 
+#from draw_convnet import DrawNet ##this also has some intstallation problems? --> may have to load code, can probably get rid of the code that contributes to it 
 
 # Parameters
 image_size = 32 
@@ -280,10 +280,10 @@ G.cuda()
 D.cuda()
 
 # Draw net
-G_net = DrawNet([1, 1], G_input_dim, num_filters, [image_size, image_size], G_output_dim, 4, 'Deconv2D', save_dir)
-D_net = DrawNet([image_size, image_size], D_input_dim, num_filters[::-1], [1, 1], D_output_dim, 4, 'Conv2D', save_dir)
-G_net.draw()
-D_net.draw()
+#G_net = DrawNet([1, 1], G_input_dim, num_filters, [image_size, image_size], G_output_dim, 4, 'Deconv2D', save_dir)
+#D_net = DrawNet([image_size, image_size], D_input_dim, num_filters[::-1], [1, 1], D_output_dim, 4, 'Conv2D', save_dir)
+#G_net.draw()
+#D_net.draw()
 
 # Set the logger
 D_log_dir = save_dir + 'D_logs'
