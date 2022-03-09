@@ -90,8 +90,7 @@ class Generator(torch.nn.Module):
         out = self.output_layer(h)
         return out
 
-## saving model - change for cifar 
-##torch.save(netG.state_dict(), 'media/data_cifs/projects/prj_categorization/thesis/gen_output.pth')
+
 device = 'cuda:0' #device to run code on 
 ngpu = 1 #number of GPUS to use 
 
