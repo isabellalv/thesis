@@ -402,6 +402,7 @@ for epoch in range(num_epochs):
         G_loss.backward()
         G_optimizer.step()
 
+        import ipdb; ipdb.set_trace()
         # loss values
         D_losses.append(D_loss.data[0])
         G_losses.append(G_loss.data[0])
