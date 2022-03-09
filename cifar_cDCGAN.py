@@ -24,7 +24,7 @@ betas = (0.5, 0.999)
 batch_size = 128 
 num_epochs = 50 
 data_dir = '../../Data/CIFAR_data/' #maybe this is where I need to line it up for CIFAR, since this is where it's getting the code? 
-save_dir = 'CIFAR_cDCGAN_results/' 
+save_dir = '../CIFAR_cDCGAN_results/' 
 
 # loading the CIFAR dataset 
 transform = transforms.Compose([transforms.Scale(image_size),
