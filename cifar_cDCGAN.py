@@ -22,7 +22,7 @@ num_filters = [512, 256, 128]
 learning_rate = 0.0002
 betas = (0.5, 0.999)
 batch_size = 128 
-num_epochs = 50 
+num_epochs = 3 # 50 
 data_dir = '../data/CIFAR/' #maybe this is where I need to line it up for CIFAR, since this is where it's getting the code? 
 save_dir = '../results/CIFAR_cDCGAN/' 
 
@@ -349,8 +349,6 @@ for epoch in range(num_epochs):
 
     # minibatch training - multiple minibatches compreise an epoch 
     for i, (images, labels) in enumerate(data_loader):
-        if i > 20:
-            break
         ############################
         # (1) Update D network: maximize log(D(x)) + log(1 - D(G(z)))
         ###########################
