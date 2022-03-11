@@ -241,6 +241,7 @@ def plot_loss(d_losses, g_losses, num_epoch, save=False, save_dir='CIFAR_cDCGAN_
 
 def plot_result(generator, noise, label, num_epoch, save=False, save_dir='CIFAR_cDCGAN_results/', show=False, fig_size=(5, 5)):
     generator.eval()
+    nc = 3
 
     noise = Variable(noise.cuda())
     label = Variable(label.cuda())
@@ -255,7 +256,7 @@ def plot_result(generator, noise, label, num_epoch, save=False, save_dir='CIFAR_
     for ax, img in zip(axes.flatten(), gen_image):
         ax.axis('off')
         ax.set_adjustable('box')
-        ax.imshow(img.cpu().data.view(image_size, image_size).numpy(), cmap='gray', aspect='equal')
+        ax.imshow(img.cpu().data.view(image_size, image_size, nc).numpy(), cmap='gray', aspect='equal')
     plt.subplots_adjust(wspace=0, hspace=0)
     title = 'Epoch {0}'.format(num_epoch+1)
     fig.text(0.5, 0.04, title, ha='center')
