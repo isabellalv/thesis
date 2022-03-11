@@ -254,7 +254,7 @@ def plot_result(generator, noise, label, num_epoch, save=False, save_dir='CIFAR_
     fig, axes = plt.subplots(n_rows, n_cols, figsize=fig_size)
     for ax, img in zip(axes.flatten(), gen_image):
         ax.axis('off')
-        ax.set_adjustable('box-forced')
+        ax.set_adjustable('box')
         ax.imshow(img.cpu().data.view(image_size, image_size).numpy(), cmap='gray', aspect='equal')
     plt.subplots_adjust(wspace=0, hspace=0)
     title = 'Epoch {0}'.format(num_epoch+1)
