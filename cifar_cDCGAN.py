@@ -22,7 +22,7 @@ num_filters = [512, 256, 128]
 learning_rate = 0.0002
 betas = (0.5, 0.999)
 batch_size = 128 
-num_epochs = 3 # 50 
+num_epochs = 50
 data_dir = '../data/CIFAR/' #maybe this is where I need to line it up for CIFAR, since this is where it's getting the code? 
 save_dir = '../results/CIFAR_cDCGAN/' 
 
@@ -239,7 +239,7 @@ def plot_loss(d_losses, g_losses, num_epoch, save=False, save_dir='CIFAR_cDCGAN_
 
 #plotting results 
 
-def plot_result(generator, noise, label, num_epoch, save=False, save_dir='CIFAR_cDCGAN_results/', show=False, fig_size=(5, 5)):
+def plot_result(generator, noise, label, num_epoch, save=False, save_dir='../results/CIFAR_cDCGAN/', show=False, fig_size=(5, 5)):
     generator.eval()
     nc = 3
 
@@ -249,6 +249,10 @@ def plot_result(generator, noise, label, num_epoch, save=False, save_dir='CIFAR_
     gen_image = denorm(gen_image)
 
     generator.train()
+#import ipdb; ipdb.set_trace()
+#to go to next line, press n and enter in terminal 
+#to go from there to next breakpoint, press c to continue 
+#s is step --> step inside the function 
 
     n_rows = np.sqrt(noise.size()[0]).astype(np.int32)
     n_cols = np.sqrt(noise.size()[0]).astype(np.int32)
