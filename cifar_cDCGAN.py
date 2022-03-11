@@ -348,6 +348,8 @@ for epoch in range(num_epochs):
 
     # minibatch training - multiple minibatches compreise an epoch 
     for i, (images, labels) in enumerate(data_loader):
+        if i > 20:
+            break
         ############################
         # (1) Update D network: maximize log(D(x)) + log(1 - D(G(z)))
         ###########################
