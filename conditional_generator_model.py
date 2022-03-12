@@ -95,7 +95,7 @@ device = 'cuda:0' #device to run code on
 ngpu = 1 #number of GPUS to use 
 
 ## creating model with parameters - change for cifar 
-G = Generator(ngpu).to(device)
+G = Generator(input_dim, label_dim, num_filters, output_dim).to(device)
 G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netG_epoch_25.pth')) #path to generator output specified to epoch that it is loading
     # ^^ specifically loading a epoch within the generator model 
 #Model Inference - change for cifar 
