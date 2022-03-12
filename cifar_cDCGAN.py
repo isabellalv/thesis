@@ -66,7 +66,7 @@ def denorm(x):
 class Generator(torch.nn.Module):
     def __init__(self, input_dim, label_dim, num_filters, output_dim):
         super(Generator, self).__init__()
-
+        import ipdb; ipdb.set_trace()
         # Hidden layers
         self.hidden_layer1 = torch.nn.Sequential()
         self.hidden_layer2 = torch.nn.Sequential()

@@ -100,8 +100,10 @@ G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/resul
     # ^^ specifically loading a epoch within the generator model 
 #Model Inference - change for cifar 
 G.eval()
-z = torch.randn(8, 100, 1, 1, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
-fake_image = G(z,c) #need to pass in z and c, need to know the dimensions of those inputs, need to be of a specific type 
+#3 rows and 12 columns for both z and c --> is this the right format? 
+z = torch.randn(8, 3, 12, 1, 1, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
+c = torch.randn(8, 3, 12, 1, 1, device=device) #both the class and the image seem to have the same input dimensions
+fake_image = G(np.shape(z),np.shape(c)) #need to pass in z and c, need to know the dimensions of those inputs, need to be of a specific type 
 print(fake_image.shape) #print output value shape 
 
 
