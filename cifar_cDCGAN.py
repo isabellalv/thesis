@@ -62,8 +62,6 @@ def denorm(x):
     out = (x + 1) / 2
     return out.clamp(0, 1)
 
-import ipdb; ipdb.set_trace()
-
 # Generator model
 class Generator(torch.nn.Module):
     def __init__(self, input_dim, label_dim, num_filters, output_dim):
@@ -134,6 +132,7 @@ class Generator(torch.nn.Module):
         self.output_layer.add_module('act', torch.nn.Tanh())
 
     def forward(self, z, c):
+        import ipdb; ipdb.set_trace()
         h1 = self.hidden_layer1(z)
         h2 = self.hidden_layer2(c)
         x = torch.cat([h1, h2], 1)
@@ -323,7 +322,7 @@ num_test_samples = 10*10
 
 temp_noise = torch.randn(label_dim, G_input_dim)
 fixed_noise = temp_noise
-fixed_c = torch.zeros(label_dim, 1)
+fixed_c = torch.zeros(label_dim, 1)  #is this the size for c?)
 for i in range(9):
     fixed_noise = torch.cat([fixed_noise, temp_noise], 0)
     temp = torch.ones(label_dim, 1) + i
