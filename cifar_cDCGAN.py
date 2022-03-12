@@ -62,6 +62,7 @@ def denorm(x):
     out = (x + 1) / 2
     return out.clamp(0, 1)
 
+ import ipdb; ipdb.set_trace()
 
 # Generator model
 class Generator(torch.nn.Module):
@@ -131,8 +132,6 @@ class Generator(torch.nn.Module):
         torch.nn.init.constant(out.bias, 0.0)
         # Activation
         self.output_layer.add_module('act', torch.nn.Tanh())
-
-    import ipdb; ipdb.set_trace()
 
     def forward(self, z, c):
         h1 = self.hidden_layer1(z)
