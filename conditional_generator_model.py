@@ -95,14 +95,19 @@ device = 'cuda:0' #device to run code on
 ngpu = 1 #number of GPUS to use 
 
 ## creating model with parameters - change for cifar 
-netG = Generator(ngpu).to(device)
-netG.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/cifar_gen_output/netG_epoch_25.pth')) #path to generator output specified to epoch that it is loading
-
+G = Generator(ngpu).to(device)
+G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netG_epoch_25.pth')) #path to generator output specified to epoch that it is loading
+    # ^^ specifically loading a epoch within the generator model 
 #Model Inference - change for cifar 
-netG.eval()
+G.eval()
 z = torch.randn(8, 100, 1, 1, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
-fake_image = netG(z) 
+fake_image = G(z,c) #need to pass in z and c, need to know the dimensions of those inputs, need to be of a specific type 
 print(fake_image.shape) #print output value shape 
+
+
+#in training code, need to figure out what is it that is being inputed to the generator (put ipdb where the generator is called) 
+# do something .shape to get shape of Z
+#feeding it random noise and a class label, and it will give you an image
 
 fake_image1 = torch.transpose(torch.transpose(fake_image[2].squeeze(),1,0),2,1).detach().cpu().numpy() #this is reshaping so color channel is last 
 #fake_image1 = fake_image[2][0].squeeze().detach().cpu().numpy()
@@ -114,7 +119,7 @@ mn, mx = fake_image1.min(), fake_image1.max()
 fake_image1 = (fake_image1 - mn)/(mx - mn)
 
 plt.imshow((fake_image1 * 255.).astype(np.uint8)) 
-plt.savefig('test.png') #assigning name to figure 
+plt.savefig('test1.png') #assigning name to figure 
 
 # POSSIBLE WAY TO PLOT: **Visualization of G’s progression**
 # previous model saved the generator’s output on the fixed_noise batch
