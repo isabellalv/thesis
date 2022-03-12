@@ -92,7 +92,12 @@ class Generator(torch.nn.Module):
 
 
 device = 'cuda:0' #device to run code on 
-ngpu = 1 #number of GPUS to use 
+#ngpu = 1 #number of GPUS to use, don't think I need for cifar 
+label_dim = 10 
+G_input_dim = 100
+G_output_dim = 3
+D_input_dim = 3
+D_output_dim = 1
 
 ## creating model with parameters - change for cifar 
 G = Generator(input_dim, label_dim, num_filters, output_dim).to(device)
