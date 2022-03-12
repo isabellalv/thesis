@@ -132,6 +132,8 @@ class Generator(torch.nn.Module):
         # Activation
         self.output_layer.add_module('act', torch.nn.Tanh())
 
+import ipdb; ipdb.set_trace()
+
     def forward(self, z, c):
         h1 = self.hidden_layer1(z)
         h2 = self.hidden_layer2(c)
@@ -140,6 +142,9 @@ class Generator(torch.nn.Module):
         out = self.output_layer(h)
         return out
 
+#to go to next line, press n and enter in terminal 
+#to go from there to next breakpoint, press c to continue 
+#s is step --> step inside the function 
 
 # Discriminator model
 class Discriminator(torch.nn.Module):
@@ -249,10 +254,6 @@ def plot_result(generator, noise, label, num_epoch, save=False, save_dir='../res
     gen_image = denorm(gen_image)
 
     generator.train()
-#import ipdb; ipdb.set_trace()
-#to go to next line, press n and enter in terminal 
-#to go from there to next breakpoint, press c to continue 
-#s is step --> step inside the function 
 
     n_rows = np.sqrt(noise.size()[0]).astype(np.int32)
     n_cols = np.sqrt(noise.size()[0]).astype(np.int32)
