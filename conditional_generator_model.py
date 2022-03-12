@@ -96,6 +96,7 @@ device = 'cuda:0' #device to run code on
 label_dim = 10 
 input_dim = 100
 output_dim = 3
+num_filters = [512, 256, 128]
 
 ## creating model with parameters - change for cifar 
 G = Generator(input_dim, label_dim, num_filters, output_dim).to(device)
