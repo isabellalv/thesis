@@ -106,8 +106,8 @@ G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/resul
 G.eval()
 #3 rows and 12 columns for both z and c --> is this the right format? 
 z = torch.randn(8, 3, 12, 1, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
-c = torch.randn(8, 3, 12, 1, device=device) #both the class and the image seem to have the same input dimensions
-fake_image = G(np.shape(z), np.shape(c)) #need to pass in z and c, need to know the dimensions of those inputs, need to be of a specific type 
+c = torch.randn(8, 3, 12, 1, device=device) #both the class and the image seem to have the same dimensions
+fake_image = G(z) #need to pass in z and c, need to know the dimensions of those inputs, need to be of a specific type 
     #do I need to pass in c, since c has the same number of elements? 
 print(fake_image.shape) #print output value shape 
 
