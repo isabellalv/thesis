@@ -131,7 +131,7 @@ class Generator(torch.nn.Module):
         self.output_layer.add_module('act', torch.nn.Tanh())
 
     def forward(self, z, c):
-        import ipdb; ipdb.set_trace()
+        #import ipdb; ipdb.set_trace()
         h1 = self.hidden_layer1(z)
         h2 = self.hidden_layer2(c)
         x = torch.cat([h1, h2], 1)
