@@ -363,7 +363,6 @@ for epoch in range(num_epochs):
         y_fake_ = Variable(torch.zeros(mini_batch).cuda())
         c_fill_ = Variable(fill[labels].cuda())
 
-        import ipdb; ipdb.set_trace()
         # Train discriminator with real data
         D_real_decision = D(x_, c_fill_).squeeze()
         D_real_loss = criterion(D_real_decision, y_real_)
