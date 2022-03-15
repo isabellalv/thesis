@@ -11,13 +11,13 @@ from logger import Logger #should it instead be import logging? why does it show
 #from draw_convnet import DrawNet ##this also has some intstallation problems? --> may have to load code, can probably get rid of the code that contributes to it 
 
 # Parameters
-image_size = 32
+image_size = 128
 label_dim = 10 #for each of the classes in the set, CIFAR has 10 
 G_input_dim = 100
 G_output_dim = 3
 D_input_dim = 3
 D_output_dim = 1
-num_filters = [512, 256, 128]
+num_filters = [2048, 1024, 512, 256, 128]
 
 learning_rate = 0.0002
 betas = (0.5, 0.999)
