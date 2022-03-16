@@ -99,7 +99,7 @@ num_filters = [2048, 1024, 512, 256, 128]
 
 ## creating model with parameters - change for cifar 
 G = Generator(input_dim, label_dim, num_filters, output_dim).to(device)
-G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netG_epoch_50.pth')) #path to generator output specified to epoch that it is loading
+G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netG_epoch_49.pth')) #path to generator output specified to epoch that it is loading
     # ^^ specifically loading a epoch within the generator model 
 #Model Inference - change for cifar 
 G.eval()
