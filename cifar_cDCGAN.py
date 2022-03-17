@@ -22,7 +22,7 @@ num_filters = [2048, 1024, 512, 256, 128]
 learning_rate = 0.0002
 betas = (0.5, 0.999)
 batch_size = 128 
-num_epochs = 50
+num_epochs = 100
 data_dir = '../data/CIFAR/' #maybe this is where I need to line it up for CIFAR, since this is where it's getting the code? 
 save_dir = '../results/CIFAR_cDCGAN/' 
 
@@ -302,6 +302,8 @@ G_logger = Logger(G_log_dir)
 
 # Loss function
 criterion = torch.nn.BCELoss()
+
+#try a different loss 
 
 # Optimizers
 G_optimizer = torch.optim.Adam(G.parameters(), lr=learning_rate, betas=betas)
