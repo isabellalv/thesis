@@ -99,13 +99,13 @@ num_filters = [2048, 1024, 512, 256, 128]
 
 ## creating model with parameters - change for cifar 
 G = Generator(input_dim, label_dim, num_filters, output_dim).to(device)
-G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netG_epoch_99.pth')) #path to generator output specified to epoch that it is loading
+G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netG_epoch_75.pth')) #path to generator output specified to epoch that it is loading
     # ^^ specifically loading a epoch within the generator model 
 #Model Inference - change for cifar 
 G.eval()
 #3 rows and 12 columns for both z and c --> is this the right format? 
-z = torch.randn(8, 100, 1, 1, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
-c = torch.randn(8, 10, 1, 1, device=device) * 0. #both the class and the image seem to have the same dimensions
+z = torch.randn(3, 100, 1, 1, device=device) #input to generator, returns a tensor with numbers from norm distri. of size 8 (8 images)
+c = torch.randn(3, 10, 1, 1, device=device) * 0. #both the class and the image seem to have the same dimensions
 c[:,7,:,:] = 1.
 fake_image = G(z, c) #need to pass in z and c, need to know the dimensions of those inputs, need to be of a specific type 
     #do I need to pass in c, since c has the same number of elements? 
