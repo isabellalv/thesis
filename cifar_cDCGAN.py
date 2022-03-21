@@ -281,8 +281,8 @@ G = Generator(G_input_dim, label_dim, num_filters, G_output_dim)
 D = Discriminator(D_input_dim, label_dim, num_filters[::-1], D_output_dim)
 
 ## load pretrained weights to continue training
-G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netG_epoch_99.pth')
-D.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netD_epoch_99.pth')
+G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netG_epoch_99.pth'))
+D.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netD_epoch_99.pth'))
 
 G.cuda()
 D.cuda()
