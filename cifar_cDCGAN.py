@@ -23,14 +23,14 @@ learning_rate = 0.0002
 betas = (0.5, 0.999)
 batch_size = 128 
 num_epochs = 100
-data_dir = '../data/CIFAR/' #maybe this is where I need to line it up for CIFAR, since this is where it's getting the code? 
+data_dir = '../data/CIFAR/' 
 save_dir = '../results/CIFAR_cDCGAN/' 
 
 # loading the CIFAR dataset 
 transform = transforms.Compose([transforms.Scale(image_size),
                                 transforms.ToTensor(),
                                 transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))])
-#getting dataset --> how does it know where this dataset is coming from??? Do I have to have CIFAR somewhere? 
+#getting dataset 
 cifar_data = dsets.CIFAR10(root=data_dir,
                          train=True,
                          transform=transform,
@@ -279,6 +279,11 @@ def plot_result(generator, noise, label, num_epoch, save=False, save_dir='../res
 # Models
 G = Generator(G_input_dim, label_dim, num_filters, G_output_dim)
 D = Discriminator(D_input_dim, label_dim, num_filters[::-1], D_output_dim)
+
+## load pretrained weights to continue training
+G.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netG_epoch_99.pth')
+D.load_state_dict(torch.load('/media/data_cifs/projects/prj_categorization/results/CIFAR_cDCGAN/netD_epoch_99.pth')
+
 G.cuda()
 D.cuda()
 
