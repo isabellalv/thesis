@@ -19,7 +19,7 @@ D_input_dim = 3
 D_output_dim = 1
 num_filters = [2048, 1024, 512, 256, 128]
 
-learning_rate = 0.0002
+learning_rate = 0.00005 #0.0002
 betas = (0.5, 0.999)
 batch_size = 128 
 num_epochs = 100
