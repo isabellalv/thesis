@@ -1,4 +1,4 @@
-HITId,WorkerId,Input.item1_url,Input.item2_url,Answer.similarity.label
+HITId,WorkerId,Image_1,Image_2,Similarity_Rating
 31D0ZWOD0AZAQZHFT6W6LROZREXA0O,A1RCVIJAS2Z3GC,https://isabellalv.pythonanywhere.com/mturkImages_sil/tp_pos0001.png,https://isabellalv.pythonanywhere.com/mturkImages_sil/tp_pos0002.png,6 - somewhat similar
 31D0ZWOD0AZAQZHFT6W6LROZREXA0O,A1WY3YGT618GC0,https://isabellalv.pythonanywhere.com/mturkImages_sil/tp_pos0001.png,https://isabellalv.pythonanywhere.com/mturkImages_sil/tp_pos0002.png,7 - mostly similar
 31D0ZWOD0AZAQZHFT6W6LROZREXA0O,A1YSYI926BBOHW,https://isabellalv.pythonanywhere.com/mturkImages_sil/tp_pos0001.png,https://isabellalv.pythonanywhere.com/mturkImages_sil/tp_pos0002.png,7 - mostly similar
